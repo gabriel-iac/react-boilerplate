@@ -48,13 +48,12 @@
 
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(32);
-	var GreeterMessage = __webpack_require__(178);
-	var GreeterForm = __webpack_require__(179);
-	var Greeter = __webpack_require__(180);
 
-	var firstName = "Gemma";
-
-	ReactDOM.render(React.createElement(Greeter, { name: firstName }), document.getElementById('app'));
+	ReactDOM.render(React.createElement(
+	  'h1',
+	  null,
+	  'Boilerplate app'
+	), document.getElementById('app'));
 
 /***/ },
 /* 1 */
@@ -21489,138 +21488,6 @@
 
 	module.exports = ReactDOMInvalidARIAHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
-
-/***/ },
-/* 178 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-
-	var GreaterMessage = React.createClass({
-	  displayName: 'GreaterMessage',
-
-	  render: function render() {
-	    var name = this.props.name;
-	    var message = this.props.message;
-	    return React.createElement(
-	      'div',
-	      null,
-	      React.createElement(
-	        'h1',
-	        null,
-	        'Hello ',
-	        name,
-	        '!'
-	      ),
-	      React.createElement(
-	        'p',
-	        null,
-	        message
-	      )
-	    );
-	  }
-	});
-
-	module.exports = GreaterMessage;
-
-/***/ },
-/* 179 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var React = __webpack_require__(1);
-
-	var GreeterForm = React.createClass({
-	  displayName: "GreeterForm",
-
-	  onFormSubmit: function onFormSubmit(e) {
-	    e.preventDefault();
-	    var name = this.refs.name.value;
-	    var message = this.refs.message.value;
-	    var updates = {};
-	    if (name.length > 0) {
-	      this.refs.name.value = "";
-	      updates.name = name;
-	    }
-	    if (message.length > 0) {
-	      this.refs.message.value = "";
-	      updates.message = message;
-	    }
-	    this.props.onNewupdates(updates);
-	  },
-	  render: function render() {
-	    return (
-	      //onSubmit={this.onButtonCLick}
-	      React.createElement(
-	        "form",
-	        { onSubmit: this.onFormSubmit },
-	        React.createElement(
-	          "div",
-	          null,
-	          React.createElement("input", { type: "text", placeholder: "enter name", ref: "name" })
-	        ),
-	        React.createElement(
-	          "div",
-	          null,
-	          React.createElement("textarea", { placeholder: "enter message", ref: "message" })
-	        ),
-	        React.createElement(
-	          "button",
-	          null,
-	          "Submit"
-	        )
-	      )
-	    );
-	  }
-	});
-
-	module.exports = GreeterForm;
-
-/***/ },
-/* 180 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(1);
-	var GreeterMessage = __webpack_require__(178);
-	var GreeterForm = __webpack_require__(179);
-
-	var Greeter = React.createClass({
-	  displayName: 'Greeter',
-
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      name: "React",
-	      message: "This is default message"
-	    };
-	  },
-	  getInitialState: function getInitialState() {
-	    return {
-	      name: this.props.name,
-	      message: this.props.message
-	    };
-	  },
-	  handleUpdates: function handleUpdates(updates) {
-	    this.setState(updates);
-	  },
-
-	  render: function render() {
-	    var name = this.state.name;
-	    var message = this.state.message;
-	    return React.createElement(
-	      'div',
-	      null,
-	      React.createElement(GreeterMessage, { name: name, message: message }),
-	      React.createElement(GreeterForm, { onNewupdates: this.handleUpdates })
-	    );
-	  }
-	});
-
-	module.exports = Greeter;
 
 /***/ }
 /******/ ]);
